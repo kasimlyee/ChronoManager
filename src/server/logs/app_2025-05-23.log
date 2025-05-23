@@ -78,3 +78,88 @@
     at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
     at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
     at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:31:50.483] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:32:05.535] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:32:20.560] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:32:35.575] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:32:50.381] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:33:20.414] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:33:50.379] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:34:20.412] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:34:50.411] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:35:20.444] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:35:50.440] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:36:20.472] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:36:50.470] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:37:20.502] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:37:50.501] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:38:20.532] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
+[2025-05-23 18:38:50.529] [ERROR] Error in processLatestAttendance: Error: BioTime configuration not found
+    at BioTimeService.getToken (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:26:24)
+    at async BioTimeService.getLatestTransaction (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:59:22)
+    at async BioTimeService.processLatestAttendance (/home/kasimlyee/Chrono-manager/src/server/services/biotimeService.js:309:27)
+    at async AttendancePoller.check (/home/kasimlyee/Chrono-manager/src/server/services/attendancePoller.js:20:22)
