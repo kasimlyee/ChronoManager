@@ -1,0 +1,29 @@
+{
+  "name": "chrono-manager",
+  "version": "1.0.0",
+  "description": "Attendance Management System with BioTime Integration",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node src/server/server.js",
+    "dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "chalk": "^5.4.1",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dayjs": "^1.11.5",
+    "events": "^3.3.0",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "sqlite3": "^5.0.11",
+    "util": "^0.12.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

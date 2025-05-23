@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chrono Manager - Advanced Attendance System</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <button class="sidebar-toggle" id="sidebarToggle">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <a href="#" class="sidebar-brand">
+          <i class="bi bi-clock"></i> Chrono Manager
+        </a>
+
+        <nav class="sidebar-nav">
+          <div class="nav-item">
+            <a href="#" class="nav-link active" data-view="dashboard">
+              <i class="bi bi-speedometer2"></i> Dashboard
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" data-view="users">
+              <i class="bi bi-people"></i> Users
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" data-view="attendance">
+              <i class="bi bi-calendar-check"></i> Attendance
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" data-view="reports">
+              <i class="bi bi-graph-up"></i> Reports
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" data-view="biotime">
+              <i class="bi bi-device-hdd"></i> BioTime
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" data-view="settings">
+              <i class="bi bi-gear"></i> Settings
+            </a>
+          </div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user-menu">
+            <div class="user-avatar">SK</div>
+            <div class="user-info">
+              <div class="user-name">Admin User</div>
+              <div class="user-role">Admin</div>
+            </div>
+            <button
+              class="user-dropdown"
+              type="button"
+              id="userDropdown"
+              data-bs-toggle="dropdown"
+            >
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="userDropdown"
+            >
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><i class="bi bi-person me-2"></i>Profile</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><i class="bi bi-gear me-2"></i>Settings</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><i class="bi bi-box-arrow-right me-2"></i>Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+          <h1 class="topbar-title">Dashboard Overview</h1>
+          <div class="topbar-actions">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              id="advancedSearchBtn"
+            >
+              <i class="bi bi-funnel"></i> Advanced
+            </button>
+
+            <button class="btn btn-sm btn-secondary">
+              <i class="bi bi-arrow-repeat"></i> Process
+            </button>
+            <button class="notification-btn">
+              <i class="bi bi-bell"></i>
+              <span class="notification-badge"></span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area">
+          <!-- Dashboard View -->
+          <div id="dashboard-view" class="view">
+            <div class="row mb-4">
+              <div class="col-md-4">
+                <div class="stat-card">
+                  <div class="stat-icon present">
+                    <i class="bi bi-check-circle"></i>
+                  </div>
+                  <div class="stat-value" id="present-count">42</div>
+                  <div class="stat-label">Present Today</div>
+                  <div class="stat-change positive">
+                    <i class="bi bi-arrow-up"></i> 12%
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="stat-card">
+                  <div class="stat-icon absent">
+                    <i class="bi bi-x-circle"></i>
+                  </div>
+                  <div class="stat-value" id="absent-count">8</div>
+                  <div class="stat-label">Absent Today</div>
+                  <div class="stat-change negative">
+                    <i class="bi bi-arrow-down"></i> 5%
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="stat-card">
+                  <div class="stat-icon late">
+                    <i class="bi bi-clock-history"></i>
+                  </div>
+                  <div class="stat-value" id="late-count">12</div>
+                  <div class="stat-label">Late Arrivals</div>
+                  <div class="stat-change positive">
+                    <i class="bi bi-arrow-up"></i> 3%
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Attendance Overview</h5>
+                    <div class="btn-group btn-group-sm" role="group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-primary active"
+                      >
+                        Today
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-primary"
+                      >
+                        Week
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-primary"
+                      >
+                        Month
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <canvas id="attendanceChart" height="250"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Recent Activity</h5>
+                  </div>
+                  <div class="card-body">
+                    <ul class="activity-list">
+                      <li class="activity-item">
+                        <div class="activity-content">
+                          <div class="activity-icon present">
+                            <i class="bi bi-person"></i>
+                          </div>
+                          <div class="activity-details">
+                            <div class="activity-title">
+                              John Doe checked in
+                            </div>
+                            <div class="activity-time">Today at 08:15 AM</div>
+                          </div>
+                          <span class="badge badge-present">On Time</span>
+                        </div>
+                      </li>
+                      <li class="activity-item">
+                        <div class="activity-content">
+                          <div class="activity-icon late">
+                            <i class="bi bi-person"></i>
+                          </div>
+                          <div class="activity-details">
+                            <div class="activity-title">
+                              Jane Smith checked in
+                            </div>
+                            <div class="activity-time">Today at 09:30 AM</div>
+                          </div>
+                          <span class="badge badge-late">Late</span>
+                        </div>
+                      </li>
+                      <li class="activity-item">
+                        <div class="activity-content">
+                          <div class="activity-icon absent">
+                            <i class="bi bi-person"></i>
+                          </div>
+                          <div class="activity-details">
+                            <div class="activity-title">
+                              Robert Johnson absent
+                            </div>
+                            <div class="activity-time">Today</div>
+                          </div>
+                          <span class="badge badge-absent">Absent</span>
+                        </div>
+                      </li>
+                      <li class="activity-item">
+                        <div class="activity-content">
+                          <div class="activity-icon present">
+                            <i class="bi bi-person"></i>
+                          </div>
+                          <div class="activity-details">
+                            <div class="activity-title">
+                              Sarah Williams checked out
+                            </div>
+                            <div class="activity-time">Today at 05:00 PM</div>
+                          </div>
+                          <span class="badge badge-present">Completed</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Users View -->
+          <div id="users-view" class="view" style="display: none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h2 class="mb-0">User Management</h2>
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#userModal"
+              >
+                <i class="bi bi-plus"></i> Add User
+              </button>
+            </div>
+
+            <div class="card">
+              <div
+                class="card-header d-flex justify-content-between align-items-center"
+              >
+                <h5>All Users</h5>
+                <div class="input-group" style="width: 250px">
+                  <input
+                    type="text"
+                    id="globalSearch"
+                    class="form-control"
+                    placeholder="Search users..."
+                  />
+                  <button class="btn btn-outline-secondary" type="button">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover" id="users-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="avatar bg-primary me-3">JD</div>
+                            <div>
+                              <h6 class="mb-0">John Doe</h6>
+                              <small class="text-muted">#EMP-001</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>john.doe@example.com</td>
+                        <td><span class="badge badge-primary">Admin</span></td>
+                        <td>
+                          <span
+                            class="badge bg-success bg-opacity-10 text-success"
+                            >Active</span
+                          >
+                        </td>
+                        <td>
+                          <button class="btn btn-sm btn-outline-primary me-1">
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button class="btn btn-sm btn-outline-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="avatar bg-success me-3">JS</div>
+                            <div>
+                              <h6 class="mb-0">Jane Smith</h6>
+                              <small class="text-muted">#EMP-002</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>jane.smith@example.com</td>
+                        <td>
+                          <span class="badge bg-info bg-opacity-10 text-info"
+                            >Teacher</span
+                          >
+                        </td>
+                        <td>
+                          <span
+                            class="badge bg-success bg-opacity-10 text-success"
+                            >Active</span
+                          >
+                        </td>
+                        <td>
+                          <button class="btn btn-sm btn-outline-primary me-1">
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button class="btn btn-sm btn-outline-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="avatar bg-warning me-3">RJ</div>
+                            <div>
+                              <h6 class="mb-0">Robert Johnson</h6>
+                              <small class="text-muted">#EMP-003</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>robert.j@example.com</td>
+                        <td>
+                          <span
+                            class="badge bg-warning bg-opacity-10 text-warning"
+                            >Staff</span
+                          >
+                        </td>
+                        <td>
+                          <span
+                            class="badge bg-secondary bg-opacity-10 text-secondary"
+                            >Inactive</span
+                          >
+                        </td>
+                        <td>
+                          <button class="btn btn-sm btn-outline-primary me-1">
+                            <i class="bi bi-pencil"></i>
+                          </button>
+                          <button class="btn btn-sm btn-outline-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <nav aria-label="Page navigation" class="mt-4">
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                      <a
+                        class="page-link"
+                        href="#"
+                        tabindex="-1"
+                        aria-disabled="true"
+                        >Previous</a
+                      >
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Next</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attendance View -->
+          <div id="attendance-view" class="view" style="display: none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h2 class="mb-0">Attendance Records</h2>
+              <div class="d-flex gap-2">
+                <div class="input-group" style="width: 200px">
+                  <input type="date" class="form-control" id="start-date" />
+                </div>
+                <div class="input-group" style="width: 200px">
+                  <input type="date" class="form-control" id="end-date" />
+                </div>
+                <button class="btn btn-primary" id="filter-attendance">
+                  <i class="bi bi-funnel"></i> Filter
+                </button>
+                <button class="btn btn-outline-secondary">
+                  <i class="bi bi-download"></i> Export
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div
+                class="card-header d-flex justify-content-between align-items-center"
+              >
+                <h5>All Records</h5>
+                <div class="input-group" style="width: 250px">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search records..."
+                  />
+                  <button class="btn btn-outline-secondary" type="button">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover" id="attendance-table">
+                    <thead>
+                      <tr>
+                        <th>Employee</th>
+                        <th>Date</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="avatar bg-primary me-3">JD</div>
+                            <div>
+                              <h6 class="mb-0">John Doe</h6>
+                              <small class="text-muted">Admin</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>May 15, 2023</td>
+                        <td>08:15 AM</td>
+                        <td>05:00 PM</td>
+                        <td>8h 45m</td>
+                        <td>
+                          <span class="badge badge-present">Present</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="avatar bg-success me-3">JS</div>
+                            <div>
+                              <h6 class="mb-0">Jane Smith</h6>
+                              <small class="text-muted">Teacher</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>May 15, 2023</td>
+                        <td>09:30 AM</td>
+                        <td>05:15 PM</td>
+                        <td>7h 45m</td>
+                        <td><span class="badge badge-late">Late</span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="avatar bg-warning me-3">RJ</div>
+                            <div>
+                              <h6 class="mb-0">Robert Johnson</h6>
+                              <small class="text-muted">Staff</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>May 15, 2023</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><span class="badge badge-absent">Absent</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <nav aria-label="Page navigation" class="mt-4">
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                      <a
+                        class="page-link"
+                        href="#"
+                        tabindex="-1"
+                        aria-disabled="true"
+                        >Previous</a
+                      >
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Next</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+          <!-- BioTime View -->
+          <div id="biotime-view" class="view" style="display: none">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>BioTime Configuration</h5>
+                  </div>
+                  <div class="card-body">
+                    <form id="biotime-form">
+                      <div class="mb-3">
+                        <label for="ip-address" class="form-label"
+                          >IP Address</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="ip-address"
+                          placeholder="192.168.1.100"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="port" class="form-label">Port</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="port"
+                          placeholder="8080"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="username" class="form-label"
+                          >Username</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="username"
+                          placeholder="admin"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="password" class="form-label"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          placeholder="••••••••"
+                          required
+                        />
+                      </div>
+                      <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                          <i class="bi bi-save"></i> Save Configuration
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-success"
+                          id="test-connection"
+                        >
+                          <i class="bi bi-plug"></i> Test Connection
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Connection Status</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                      <i class="bi bi-exclamation-triangle me-2"></i> No active
+                      connection to BioTime device
+                    </div>
+
+                    <div class="connection-details">
+                      <h6 class="text-muted mb-3">Last Connection</h6>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span>Status:</span>
+                        <span class="badge bg-danger">Disconnected</span>
+                      </div>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span>Last Sync:</span>
+                        <span>May 10, 2023 14:30</span>
+                      </div>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span>Records Fetched:</span>
+                        <span>0</span>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <span>Device Model:</span>
+                        <span>-</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- User Modal -->
+    <div class="modal fade" id="userModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Add New User</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="user-form">
+              <input type="hidden" id="user-id" />
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="name" required />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input type="tel" class="form-control" id="phone" />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="role" class="form-label">Role</label>
+                  <select class="form-select" id="role" required>
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="staff">Staff</option>
+                    <option value="student">Student</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div
+                  class="col-md-6 mb-3"
+                  id="parent-phone-group"
+                  style="display: none"
+                >
+                  <label for="parent-phone" class="form-label"
+                    >Parent Phone</label
+                  >
+                  <input type="tel" class="form-control" id="parent-phone" />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="card-number" class="form-label"
+                    >Card Number</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="card-number"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="photo" class="form-label">Profile Photo</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="photo"
+                  accept="image/*"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="save-user">
+              <i class="bi bi-save me-1"></i> Save User
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Detail Modal -->
+    <div
+      class="modal fade"
+      id="userDetailModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">User Attendance Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <h4 id="detail-user-name"></h4>
+                <p class="text-muted" id="detail-user-role"></p>
+                <p id="detail-user-email"></p>
+                <p id="detail-user-phone"></p>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h6 class="card-title">Attendance Summary</h6>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <p class="mb-1">Total Present</p>
+                        <h4 id="total-present">0</h4>
+                      </div>
+                      <div>
+                        <p class="mb-1">Days Late</p>
+                        <h4 id="total-late">0</h4>
+                      </div>
+                      <div>
+                        <p class="mb-1">Days Absent</p>
+                        <h4 id="total-absent">0</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h5 class="mb-3">Current Week</h5>
+            <div class="table-responsive">
+              <table class="table table-bordered text-center">
+                <thead>
+                  <tr>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="week-attendance">
+                    <!-- Filled by JavaScript -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h5 class="mt-4 mb-3">Recent Attendance</h5>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="user-attendance-details">
+                  <!-- Filled by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="export-user-data">
+              Export Data
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="searchResults" class="mt-3"></div>
+
+    <!-- Advanced Search Modal -->
+    <div class="modal fade" id="advancedSearchModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Advanced Search</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="advancedSearchForm">
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">User</label>
+                  <select class="form-select" name="user_id">
+                    <option value="">All Users</option>
+                    <option value="students">students</option>
+                    <option value="teachers">teachers</option>
+                    <option value="staff">staff</option>
+                    <!-- Populated by JavaScript -->
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Status</label>
+                  <select class="form-select" name="status">
+                    <option value="">Any Status</option>
+                    <option value="present">Present</option>
+                    <option value="late">Late</option>
+                    <option value="absent">Absent</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">From Date</label>
+                  <input type="date" class="form-control" name="start_date" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">To Date</label>
+                  <input type="date" class="form-control" name="end_date" />
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Update Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">Update Available</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>A new version is available:</p>
+            <p>Current: <span id="currentVersion"></span></p>
+            <p>Available: <span id="latestVersion"></span></p>
+            <div class="card mt-3">
+              <div class="card-header">Release Notes</div>
+              <div class="card-body" id="releaseNotes"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Later
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="updateManager.installUpdate()"
+            >
+              Install Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Day.js -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script>
+      // Initialize chart
+      document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("attendanceChart").getContext("2d");
+        const attendanceChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            datasets: [
+              {
+                label: "Present",
+                data: [45, 42, 47, 43, 46, 15, 5],
+                backgroundColor: "#4cc9f0",
+                borderRadius: 4,
+              },
+              {
+                label: "Absent",
+                data: [5, 8, 3, 7, 4, 0, 0],
+                backgroundColor: "#ff3860",
+                borderRadius: 4,
+              },
+              {
+                label: "Late",
+                data: [12, 10, 8, 9, 7, 2, 1],
+                backgroundColor: "#ff9f1c",
+                borderRadius: 4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: "top",
+              },
+              tooltip: {
+                mode: "index",
+                intersect: false,
+              },
+            },
+            scales: {
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+              y: {
+                beginAtZero: true,
+                grid: {
+                  drawBorder: false,
+                },
+                ticks: {
+                  stepSize: 10,
+                },
+              },
+            },
+          },
+        });
+
+        // View switching
+        document.querySelectorAll("[data-view]").forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const viewToShow = this.getAttribute("data-view");
+
+            // Hide all views
+            document.querySelectorAll(".view").forEach((view) => {
+              view.style.display = "none";
+            });
+
+            // Show selected view
+            document.getElementById(`${viewToShow}-view`).style.display =
+              "block";
+
+            // Update active nav link
+            document.querySelectorAll(".nav-link").forEach((navLink) => {
+              navLink.classList.remove("active");
+            });
+            this.classList.add("active");
+
+            // Update topbar title
+            const titleMap = {
+              dashboard: "Dashboard Overview",
+              users: "User Management",
+              attendance: "Attendance Records",
+              biotime: "BioTime Configuration",
+            };
+
+            if (titleMap[viewToShow]) {
+              document.querySelector(".topbar-title").textContent =
+                titleMap[viewToShow];
+            }
+          });
+        });
+
+        // Role change handler
+        document.getElementById("role").addEventListener("change", function () {
+          const parentPhoneGroup =
+            document.getElementById("parent-phone-group");
+          if (this.value === "student") {
+            parentPhoneGroup.style.display = "block";
+          } else {
+            parentPhoneGroup.style.display = "none";
+          }
+        });
+
+        // Sidebar toggle
+        document
+          .getElementById("sidebarToggle")
+          .addEventListener("click", function () {
+            document.getElementById("sidebar").classList.toggle("show");
+          });
+      });
+    </script>
+    <script src="js/app.js"></script>
+    <script src="js/updateManager.js"></script>
+    <script src="js/searchManager.js"></script>
+  </body>
+</html>
